@@ -11,7 +11,7 @@ use Data::Dumper;
 #########
 # Global Variables
 
-our $VERSION = "v1.2";
+our $VERSION = "v1.2.1";
 our $SCRIPT  = basename($0);
 
 #########
@@ -52,7 +52,7 @@ OPTIONS
 EOHELP
 
     # Default code is '1'
-    exit $code || 1;
+    exit ($code // 1);
 }
 
 #########
@@ -248,7 +248,7 @@ sub process_header
 
     # The next line should be the header line
     $line = shift @$data;
-    unless($line =~ /^\s*fund\s*\#\s*description\s*amount\s*$/i) {
+    unless($line =~ /^\s*fund\s*(?:\#)?\s*description\s*amount\s*$/i) {
 	die "FATAL: Parsing problem, was expecting the header line.\n";
     }
 
