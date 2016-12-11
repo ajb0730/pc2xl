@@ -15,3 +15,10 @@
 
 6. Package `pc2xl.exe` with all of the DLLs you copied and deploy that to the
    target machine.
+
+### Compile for Mac
+
+1. Install PAR::Packer from CPAN.
+
+2. Run `pp -B -o pc2xl pc2xl.pl`
+
